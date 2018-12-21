@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 
@@ -43,7 +44,7 @@ namespace SwissTransport
             return null;
         }
 
-        public Connections GetConnections(string fromStation, string toStation)
+        public Connections GetConnections(string fromStation, string toStation, string v, string text)
         {
             fromStation = System.Uri.EscapeDataString(fromStation);
             toStation = System.Uri.EscapeDataString(toStation);
@@ -71,6 +72,16 @@ namespace SwissTransport
             request.Proxy = webProxy;
             
             return request;
+        }
+
+        public Connections GetConnections(string fromStation, string toStattion)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Connections GetConnections(string fromStation, string toStattion, DateTime dtDate)
+        {
+            throw new NotImplementedException();
         }
     }
 }
